@@ -1,0 +1,15 @@
+#!/Users/pdagosti/.rvm/rubies/ruby-2.1.1/bin/ruby
+
+require 'require_all'
+require_all 'lib'
+
+def script()
+
+  @utils = Utils.new
+  @netio = NetIO.new(@utils.opts)
+  @netio.set_hosts(@utils.parser.leftovers[0] || "")
+  @netio.scan()
+
+end
+
+script()
